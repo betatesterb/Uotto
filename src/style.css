@@ -289,15 +289,26 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  gap: 8px;            /* 약간 줄이는 게 안정적 */
+  flex-wrap: nowrap;   /* 줄바꿈 방지 */
+
 }
 
 /* Lotto Ball UI Design */
 .lotto-ball {
   position: relative;
+  /*
   width: 50px;
   height: 50px;
+  */
+  /* 수정영역 */
+  width: calc((100% - 40px) / 6);
+  aspect-ratio: 1 / 1;
+  height: auto;  
+  max-width: 50px;  /* 큰 화면에서는 기존 디자인 유지 */
+  max-height: 50px;
+  min-width: 38px;  /* 너무 작아지는 것 방지 (선택) */
+  
   border-radius: 50%;
   display: flex;
   justify-content: center;
