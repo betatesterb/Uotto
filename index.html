@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPTN LOTTO - 일상에 행운을 더하다</title>
+  <!-- Google Fonts: Outfit for numbers/headings, Noto Sans KR for general Korean text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Cosmic background glow elements -->
+    <div class="ambient-glow bg-purple"></div>
+    <div class="ambient-glow bg-cyan"></div>
+    
+    <!-- App Header -->
+    <header class="app-header">
+      <div class="logo-area">
+        <span class="brand-text">UPTN</span>
+        <span class="logo-divider"></span>
+        <span class="service-name">LOTTO</span>
+      </div>
+      <div class="header-action">
+        <button id="reset-limit-btn" class="dev-badge" title="개발자용: 오늘 횟수 초기화">DEV RESET</button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="app-content">
+      <!-- Lotto Generator Area -->
+      <section class="generator-section card">
+        <div class="card-header">
+          <div class="badge-container">
+            <span class="badge neon-purple-glow">DAILY FREE DRAW</span>
+          </div>
+          <h2>로또 번호 생성</h2>
+          <p class="subtitle">버튼을 눌러 1부터 45까지 중복되지 않는 6개의 행운의 번호를 확인해보세요.</p>
+        </div>
+
+        <!-- Draw Limit Counter Area -->
+        <div class="limit-status-container">
+          <div class="limit-text">오늘 남은 기회</div>
+          <div class="limit-counter">
+            <span id="remaining-count" class="count-value">5</span>
+            <span class="count-total">/ 5</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div id="remaining-progress" class="progress-bar-fill" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <!-- Balls Container (Displaying lottery balls) -->
+        <div class="draw-board">
+          <div id="balls-display" class="balls-row">
+            <!-- Placeholders showing skeleton outline -->
+            <div class="ball-placeholder animate-pulse">?</div>
+            <div class="ball-placeholder animate-pulse">?</div>
+            <div class="ball-placeholder animate-pulse">?</div>
+            <div class="ball-placeholder animate-pulse">?</div>
+            <div class="ball-placeholder animate-pulse">?</div>
+            <div class="ball-placeholder animate-pulse">?</div>
+          </div>
+        </div>
+
+        <!-- Control Area -->
+        <div class="control-container">
+          <button id="generate-btn" class="btn-primary">
+            <span class="btn-text">로또번호 생성</span>
+            <div class="btn-glow-effect"></div>
+          </button>
+        </div>
+      </section>
+
+      <!-- History Area -->
+      <section class="history-section card">
+        <div class="card-header flex-header">
+          <div>
+            <h3>생성 히스토리</h3>
+            <p class="subtitle">최근에 생성된 로또 번호 목록입니다.</p>
+          </div>
+          <button id="clear-history-btn" class="btn-text-only hidden">전체 삭제</button>
+        </div>
+
+        <!-- History List -->
+        <div id="history-container" class="history-list-wrapper">
+          <!-- Empty State -->
+          <div id="history-empty" class="empty-state">
+            <div class="empty-icon">🍀</div>
+            <p>최근 추출된 행운의 번호가 없습니다.</p>
+            <p class="empty-sub">위 생성 버튼을 눌러 번호를 확인해보세요!</p>
+          </div>
+          <div id="history-items" class="history-items-container"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- App Footer -->
+    <footer class="app-footer">
+      <p>© 2026 UPTN LOTTO. Powered by SK Planet Web3 Service concepts.</p>
+    </footer>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Main JavaScript File -->
+  <script src="src/main.js" type="module"></script>
+</body>
+</html>
